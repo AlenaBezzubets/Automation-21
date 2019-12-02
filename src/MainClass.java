@@ -2,26 +2,26 @@ import org.junit.Test;
 
 public class MainClass {
 
-     private static int class_number = 20;
-     public static int getClassNumber () {
-         return class_number;
+     private static String class_string = "Hello,world";
+     public static String getClassString () {
+         return class_string;
      }
-
      public static void main (String [] args ){
-            System.out.println (getClassNumber());
+            System.out.println (getClassString());
 }
-    }
+}
 class MainClassTest extends MainClass {
     public static void main (String [] args ) {
-    System.out.println(testGetClassNumber());
-}
+        System.out.println(testGetClassString());
+    }
     @Test
-    static String testGetClassNumber () {
-        if (getClassNumber () > 45)
-            return "Return result is correct";
-        else return "Return result is less than 45";
+    static String testGetClassString () {
+        if (getClassString ().contains("hello") || getClassString().contains("Hello"))
+            return "Return result is correct, it contains Hello";
+        else return "Test is failed. Return result does not contain Hello ";
     }
 }
+
 
 
 
