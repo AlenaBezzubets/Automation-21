@@ -3,6 +3,8 @@ import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
@@ -18,7 +20,7 @@ DesiredCapabilities capabilities = new DesiredCapabilities ();
     capabilities.setCapability ("automationName","Appium");
     capabilities.setCapability ("appPackage","org.wikipedia");
     capabilities.setCapability ("appActivity",".main.MainActivity");
-    capabilities.setCapability ("app","C:\\Users\\alena_ibiza\\Desktop\\Java_Appium_Automation\\apks\\org.wikipedia_30276_apps.evozi.com.apk");
+    capabilities.setCapability ("app","C:\\Users\\alena_ibiza\\Desktop\\Java_Appium_Automation\\apks\\org.wikipedia_30276_apps.evozi.com (8).apk");
 
     driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 }
@@ -28,6 +30,10 @@ public void tearDown () {
 }
 @Test
 public void firstTest (){
-    System.out.println("First test run");
+    WebElement element_to_init_search = driver.findElementByXPath("//*[contains(@text,'Search Wikipedia')]");
+    element_to_init_search.click();
+    WebElement element_to_enter_search_line = driver.findElementByXPath("//*[contains(@text,'Search Wikipedia')]");
+    element_to_enter_search_line.sendKeys("Appium");
+    // System.out.println("First test run");
 }
 }
